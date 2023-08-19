@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 """ Module that manages the LOG """
-
-import logging.config
-from logging import LogRecord
-from pathlib import Path
-
-import yaml
-
-from resources.configuration import LOGS_FOLDER, LOGS_LEVEL, LOGS_MODE
+try:
+    import sys
+    import yaml
+    import logging.config
+    from logging import LogRecord
+    from pathlib import Path
+    from resources.configuration import LOGS_FOLDER, LOGS_LEVEL, LOGS_MODE
+except ModuleNotFoundError:
+    print('Something went wrong while importing dependencies. Please, check the requirements file')
+    sys.exit(1)
 
 file_path = Path(__file__).absolute()
 root_folder = file_path.parent.parent
