@@ -8,7 +8,7 @@ try:
     from pathlib import Path
     from resources.configuration import LOGS_FOLDER, LOGS_LEVEL, LOGS_MODE
 except ModuleNotFoundError:
-    print('Something went wrong while importing dependencies. Please, check the requirements file')
+    print("Something went wrong while importing dependencies. Please, check the requirements file")
     sys.exit(1)
 
 file_path = Path(__file__).absolute()

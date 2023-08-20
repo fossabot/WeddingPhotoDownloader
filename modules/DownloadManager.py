@@ -8,12 +8,12 @@ try:
     from utils.FirefoxConfigurator import configure_firefox_options
     from selenium import webdriver
 except ModuleNotFoundError:
-    print('Something went wrong while importing dependencies. Please, check the requirements file')
+    print("Something went wrong while importing dependencies. Please, check the requirements file")
     sys.exit(1)
 
 
-class Downloader(object):
-    """ The downloader """
+class DownloadManager(object):
+    """ The download manager """
 
     def __init__(self) -> None:
         self.url = WEEDING_WEBSITE_BASE_URL
@@ -25,6 +25,6 @@ class Downloader(object):
         """
         Close the browser instance
         """
-        logger.info('Closing the downloader')
+        logger.info("Closing the downloader")
 
         self.driver.quit()
