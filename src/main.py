@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 """ Module that runs the script """
+
 try:
     import sys
     from argparse import ArgumentParser, Namespace
@@ -8,6 +9,7 @@ try:
     from src.logger import setup_logging, logger
     from modules.NetworkManager import check_gallery_availability
     from modules.StorageManager import create_download_folder
+    from utils.Messages import handle_warning_message
 except ModuleNotFoundError:
     print("Something went wrong while importing dependencies. Please, check the requirements file")
     sys.exit(1)
@@ -62,8 +64,7 @@ def process_arguments(arguments: Namespace) -> None:
                 warning_lines.append(warning_line)
 
             for warning_line in warning_lines:
-                logger.warning(warning_line)
-                print(warning_line)
+                handle_warning_message(warning_line)
     else:
         error_line = f"Command {command} is not recognised"
         logger.error(error_line)

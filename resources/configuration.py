@@ -19,4 +19,4 @@ WEEDING_WEBSITE_BASE_URL = 'https://fotoshare.co/e/'
 
 DOWNLOADS_PARENT_FOLDER = 'WeddingPhotoDownloads'
 
-BROWSER_SILENT_MODE = True
+BROWSER_SILENT_MODE = False

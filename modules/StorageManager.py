@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 """ Module in charge of disk operations """
+
 try:
     import sys
     from pathlib import Path
     from resources.configuration import DOWNLOADS_PARENT_FOLDER
-    from src.logger import logger
+    from utils.Messages import handle_info_message, handle_error_message
 except ModuleNotFoundError:
     print("Something went wrong while importing dependencies. Please, check the requirements file")
     sys.exit(1)
@@ -19,13 +20,13 @@ def create_download_folder(name: str) -> tuple[bool, Path]:
     value is the path to the folder
     :rtype: tuple[bool, Path]
     """
+    handle_info_message("Trying to create the download folder")
 
     download_folder = Path().home().joinpath(DOWNLOADS_PARENT_FOLDER).joinpath(name)
     try:
         Path(download_folder).mkdir(parents=True, exist_ok=True)
+        handle_info_message("Download folder successfully created")
         return True, download_folder
     except OSError as exception:
-        exception_line = f"Error creating download folder: {exception.errno}"
-        logger.error(exception_line)
-        print(exception_line)
+        handle_error_message(f"Error creating the download folder: {exception.errno}")
         return False, download_folder

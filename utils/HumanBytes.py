@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-""" Module to convert a number of bytes to a more readable format """
+""" Utility class to convert a number of bytes to a more readable format """
 
 from typing import Union
 
