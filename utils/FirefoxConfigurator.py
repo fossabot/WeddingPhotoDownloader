@@ -3,23 +3,25 @@
 
 try:
     import sys
+    from selenium.webdriver.firefox.service import Service
     from selenium.webdriver.firefox.options import Options
-    from resources.configuration import BROWSER_SILENT_MODE
+    from resources.configuration import BROWSER_SILENT_MODE, GECKODRIVER_PATH
     from utils.Messages import handle_info_message
 except ModuleNotFoundError:
     print("Something went wrong while importing dependencies. Please, check the requirements file")
     sys.exit(1)
 
 
-def configure_firefox_options() -> Options:
+def configure_firefox_instance() -> tuple[Options, Service]:
     """
-    Configure the options with which to start Firefox
+    Configure the service and the options with which to start Firefox
 
-    :return: The specified configuration
-    :rtype: Options
+    :return: A tuple, where the first value is the options and the second is the service to be used
+    :rtype: tuple[Options, Service]
     """
-    handle_info_message("Setting Firefox preferences")
+    handle_info_message("Configuring the Firefox instance")
 
+    service = Service(executable_path=GECKODRIVER_PATH)
     options = Options()
     # Run Firefox with no GUI
     if BROWSER_SILENT_MODE:
@@ -30,4 +32,4 @@ def configure_firefox_options() -> Options:
     options.set_preference('dom.webnotifications.enabled', False)
     options.set_preference('dom.push.enabled', False)
 
-    return options
+    return options, service
