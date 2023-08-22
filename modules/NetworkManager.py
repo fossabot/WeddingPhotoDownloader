@@ -87,7 +87,7 @@ def download_gallery_items(code: str, items: list[GalleryItem], download_folder:
             else:
                 success, response = make_http_request(item.url, headers)
             if success and response.status_code == requests.codes['ok']:
-                filename = __generate_sanitised_file_name(item.date, item.item_hash)
+                filename = __generate_sanitised_file_name(item.date, item.item_hash, item.file_type)
                 full_path = Path(download_folder, filename)
                 write_item_to_disk(full_path, response)
             else:
@@ -99,19 +99,21 @@ def download_gallery_items(code: str, items: list[GalleryItem], download_folder:
     handle_info_message("The items obtained have been saved to disk")
 
 
-def __generate_sanitised_file_name(item_date: str, item_hash: str) -> str:
+def __generate_sanitised_file_name(item_date: str, item_hash: str, item_file_type: str) -> str:
     """
     Generates the sanitised file name
 
     :param str item_date: The date property of item to download
     :param str item_hash: The hash property of item to download
+    :param str item_file_type: The file type property of item to download
     :return: The sanitised name, consisting of the date and hash separated by a hyphen with spaces
     :rtype: str
     """
     handle_info_message(f"Creating the item name with hash {item_hash}")
 
     sanitised_date = item_date.replace(':', '_')
-    return ' - '.join([sanitised_date, item_hash])
+    date_name_part = ' - '.join([sanitised_date, item_hash])
+    return '.'.join([date_name_part, item_file_type])
 
 
 def __get_item_headers_params(item_url: str) -> tuple[Any, Any]:
