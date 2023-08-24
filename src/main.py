@@ -27,7 +27,7 @@ def main() -> None:
     subparser.add_argument('--gallery', type=str, nargs='+', required=True,
                            help="A list of gallery identifiers, separated by a space")
     subparser.add_argument('--name', type=str, required=True,
-                           help="Name of the folder where the items will be downloaded")
+                           help="Name of the folder where the galleries will be downloaded")
 
     arguments = parser.parse_args()
     if arguments.command:
