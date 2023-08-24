@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 """ Utility class to convert a number of bytes to a more readable format """
 
-from typing import Union
-
 
 # https://stackoverflow.com/a/63839503/3522933
 class HumanBytes(object):
@@ -16,7 +14,7 @@ class HumanBytes(object):
     PRECISION_FORMATS: list[str] = ["{}{:.0f} {}", "{}{:.1f} {}", "{}{:.2f} {}", "{}{:.3f} {}"]
 
     @staticmethod
-    def format(num: Union[int, float], metric: bool = False, precision: int = 1) -> str:
+    def format(num: int | float, metric: bool = False, precision: int = 1) -> str:
         """
         Human-readable formatting of bytes, using binary (powers of 1024) or metric (powers of 1000) representation
 
