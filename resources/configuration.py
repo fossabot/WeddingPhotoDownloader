@@ -9,17 +9,21 @@ LOGS_LEVEL = 20
 
 GECKODRIVER_LOG_NAME = 'geckodriver.log'
 
-# See: https://github.com/mozilla/geckodriver/issues/2010
-# Open a terminal and run '$ whereis geckodriver'
-# geckodriver: /usr/bin/geckodriver /snap/bin/geckodriver
-# If there is an option with 'SNAP' you have to specify that one, otherwise specify the one that appears
-GECKODRIVER_PATH = '/snap/bin/geckodriver'
-
 DOWNLOADS_PARENT_FOLDER = 'WeddingPhotoDownloads'
 
 BROWSER_SILENT_MODE = True
 
 SCROLL_WAITING_TIME = 2
+
+'''
+Modify these variables below in case the script stops working or you want to use another website
+'''
+
+# See: https://github.com/mozilla/geckodriver/issues/2010
+# Open a terminal and run '$ whereis geckodriver'
+# geckodriver: /usr/bin/geckodriver /snap/bin/geckodriver
+# If there is an option with 'SNAP' you have to specify that one, otherwise specify the one that appears
+GECKODRIVER_PATH = '/snap/bin/geckodriver'
 
 __USER_AGENT = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0'
 __ACCEPT = 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8'
