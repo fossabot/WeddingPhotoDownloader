@@ -9,6 +9,12 @@ LOGS_LEVEL = 20
 
 GECKODRIVER_LOG_NAME = 'geckodriver.log'
 
+# See: https://github.com/mozilla/geckodriver/issues/2010
+# Open a terminal and run '$ whereis geckodriver'
+# geckodriver: /usr/bin/geckodriver /snap/bin/geckodriver
+# If there is an option with 'SNAP' you have to specify that one, otherwise specify the one that appears
+GECKODRIVER_PATH = '/snap/bin/geckodriver'
+
 DOWNLOADS_PARENT_FOLDER = 'WeddingPhotoDownloads'
 
 BROWSER_SILENT_MODE = True
@@ -41,9 +47,3 @@ VIDEO_REQUESTS_HEADERS = {'User-Agent': __USER_AGENT, 'Accept': __ACCEPT, 'Accep
 GALLERY_ITEMS_CONTAINER_XPATH = '/html/body/div[3]'
 
 GALLERY_ITEMS_XPATH = "//div[@class='thumb']"
-
-# See: https://github.com/mozilla/geckodriver/issues/2010
-# Open a terminal and run '$ whereis geckodriver'
-# geckodriver: /usr/bin/geckodriver /snap/bin/geckodriver
-# If there is an option with 'SNAP' you have to specify that one, otherwise specify the one that appears
-GECKODRIVER_PATH = '/snap/bin/geckodriver'
