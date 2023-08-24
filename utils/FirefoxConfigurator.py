@@ -5,7 +5,7 @@ try:
     import sys
     from selenium.webdriver.firefox.service import Service
     from selenium.webdriver.firefox.options import Options
-    from resources.configuration import BROWSER_SILENT_MODE, GECKODRIVER_PATH, LOGS_FOLDER, GECKODRIVER_LOG_NAME
+    from resources.configuration import BROWSER_SILENT_MODE, GECKODRIVER_PATH, GECKODRIVER_LOG_NAME
     from src.logger import get_log_path
     from utils.Messages import handle_info_message
 except ModuleNotFoundError:
