@@ -88,7 +88,7 @@ def download_gallery_items(code: str, items: list[GalleryItem], download_folder:
                 success, response = make_http_request(item.url, headers)
             if success and response.status_code == requests.codes['ok']:
                 filename = __generate_sanitised_file_name(item.date, item.item_hash, item.file_type)
-                full_path = Path(download_folder, filename)
+                full_path = Path(download_folder, filename).resolve()
                 write_item_to_disk(full_path, response)
             else:
                 handle_warning_message(f"The {item.url} item could not be downloaded. A {response.status_code} code has"

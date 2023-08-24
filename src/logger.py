@@ -11,10 +11,10 @@ except ModuleNotFoundError:
     print("Something went wrong while importing dependencies. Please, check the requirements file")
     sys.exit(1)
 
-file_path = Path(__file__).absolute()
-root_folder = file_path.parent.parent
-path_log_folder = Path(root_folder).joinpath(LOGS_FOLDER)
-path_log_config_file = Path(root_folder).joinpath('resources').joinpath('log.yaml')
+__file_path = Path(__file__).resolve()
+__root_folder = __file_path.parent.parent
+__path_log_folder = Path(__root_folder).joinpath(LOGS_FOLDER)
+__path_log_config_file = Path(__root_folder).joinpath('resources').joinpath('log.yaml')
 
 
 class InfoFilter(logging.Filter):
@@ -93,12 +93,12 @@ def create_logs_folder() -> bool:
     :rtype: bool
     """
 
-    if not Path(path_log_folder).exists():
+    if not Path(__path_log_folder).exists():
         try:
-            Path(path_log_folder).mkdir(exist_ok=True)
+            Path(__path_log_folder).mkdir(exist_ok=True)
             return True
         except OSError:
-            print(f"Creation of the log directory '{path_log_folder}' failed")
+            print(f"Creation of the log directory '{__path_log_folder}' failed")
             return False
     else:
         return True
@@ -108,17 +108,29 @@ def setup_logging() -> None:
     """ Initialise the logging system """
 
     if create_logs_folder():
-        if Path(path_log_config_file).exists():
-            if Path(path_log_config_file).is_file():
-                with open(path_log_config_file, 'rt') as config_file:
+        if Path(__path_log_config_file).exists():
+            if Path(__path_log_config_file).is_file():
+                with open(__path_log_config_file, 'rt') as config_file:
                     config = yaml.safe_load(config_file.read())
                     logging.config.dictConfig(config)
             else:
-                print(f"The path to the log configuration file must be a file not a directory: {path_log_config_file}")
+                print(f"The path to the log configuration file must be a file not a directory: "
+                      f"{__path_log_config_file}")
         else:
-            print(f"The path to the log configuration file do not exist: {path_log_config_file}")
+            print(f"The path to the log configuration file do not exist: {__path_log_config_file}")
     else:
         print("An error occurred while trying to configure the logging system")
+
+
+def get_log_path() -> Path:
+    """
+    Returns the path to the folder where the logs are stored
+
+    :return: The path to the log folder
+    :rtype: Path
+    """
+
+    return __path_log_folder
 
 
 logger = logging.getLogger(LOGS_MODE)

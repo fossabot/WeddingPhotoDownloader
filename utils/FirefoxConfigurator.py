@@ -5,7 +5,8 @@ try:
     import sys
     from selenium.webdriver.firefox.service import Service
     from selenium.webdriver.firefox.options import Options
-    from resources.configuration import BROWSER_SILENT_MODE, GECKODRIVER_PATH
+    from resources.configuration import BROWSER_SILENT_MODE, GECKODRIVER_PATH, LOGS_FOLDER, GECKODRIVER_LOG_NAME
+    from src.logger import get_log_path
     from utils.Messages import handle_info_message
 except ModuleNotFoundError:
     print("Something went wrong while importing dependencies. Please, check the requirements file")
@@ -21,7 +22,8 @@ def configure_firefox_instance() -> tuple[Options, Service]:
     """
     handle_info_message("Configuring the Firefox instance")
 
-    service = Service(executable_path=GECKODRIVER_PATH)
+    geckodriver_log_path = str(get_log_path().joinpath(GECKODRIVER_LOG_NAME).resolve())
+    service = Service(executable_path=GECKODRIVER_PATH, log_output=geckodriver_log_path)
     options = Options()
     # Run Firefox with no GUI
     if BROWSER_SILENT_MODE:

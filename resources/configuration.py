@@ -7,6 +7,8 @@ LOGS_MODE = 'production'
 # Available levels: CRITICAL = 50, ERROR = 40, WARNING = 30, INFO = 20, DEBUG = 10
 LOGS_LEVEL = 20
 
+GECKODRIVER_LOG_NAME = 'geckodriver.log'
+
 DOWNLOADS_PARENT_FOLDER = 'WeddingPhotoDownloads'
 
 BROWSER_SILENT_MODE = True
