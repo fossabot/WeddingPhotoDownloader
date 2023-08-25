@@ -1,7 +1,7 @@
 ![build](https://img.shields.io/badge/build-passing-brightgreen) ![license](https://img.shields.io/badge/license-MIT-brightgreen) ![python](https://img.shields.io/badge/python-3.9%2B-blue) ![platform](https://img.shields.io/badge/platform-linux--64%20%7C%20win--64-lightgrey)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=MinionAttack_WeddingPhotoDownloader&metric=alert_status)](https://sonarcloud.io/dashboard?id=MinionAttack_WeddingPhotoDownloader)
 
-# Weeding Photo Downloader
+# Wedding Photo Downloader
 
 Table of contents.
 
@@ -198,6 +198,8 @@ options:
                         A list of gallery identifiers, separated by a space
   --name NAME           Name of the folder where the galleries will be downloaded
 ```
+
+**Note**: The folder in which the items will be downloaded is generated in the personal folder of the currently logged-in user.
 
 ### Example of use
 
