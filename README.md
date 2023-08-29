@@ -1,5 +1,6 @@
 ![build](https://img.shields.io/badge/build-passing-brightgreen) ![license](https://img.shields.io/badge/license-MIT-brightgreen) ![python](https://img.shields.io/badge/python-3.9%2B-blue) ![platform](https://img.shields.io/badge/platform-linux--64%20%7C%20win--64-lightgrey)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=MinionAttack_WeddingPhotoDownloader&metric=alert_status)](https://sonarcloud.io/dashboard?id=MinionAttack_WeddingPhotoDownloader)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FMinionAttack%2FWeddingPhotoDownloader.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FMinionAttack%2FWeddingPhotoDownloader?ref=badge_shield)
 
 # Wedding Photo Downloader
 
@@ -231,3 +232,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
 COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
 OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FMinionAttack%2FWeddingPhotoDownloader.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FMinionAttack%2FWeddingPhotoDownloader?ref=badge_large)
